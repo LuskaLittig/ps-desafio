@@ -17,7 +17,11 @@ class ProdutoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->lastname(),
+            'brand'=> $this->faker->company(),
+            'expiration_date' => $this->faker->monthName() ,
+            'description' => $this->faker->realText($maxNbChars = 50, $indexSize = 2),
+            
         ];
     }
 }

@@ -42,13 +42,17 @@ Route::middleware('locale')->group(function () {
         Route::resource('user', UserController::class, ['except' => ['show']]);
         Route::resource('categoria', CategoriaController::class, ['except' => ['show']]);
         Route::resource('produto', ProdutoController::class);
-
-
+        
         //Rotas para perfil do usuário
         Route::controller(ProfileController::class)->name('profile.')->group(function () {
             Route::get('profile', 'edit')->name('edit');
             Route::put('profile', 'update')->name('update');
             Route::put('profile/password', 'password')->name('password');
         });
+    
+        // Route::resource('nacionalidade', NacionalidadeController::class);
+        // Route::resource('jogador', JogadorController::class);
+        // Route::resource('categoria', CategoriaController::class);
+        // Route::resource('produto', ProdutoController::class);
     });
 });

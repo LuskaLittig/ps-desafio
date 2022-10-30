@@ -26,14 +26,23 @@
                                             {{ __('Nome') }}
                                         </th>
                                         <th>
-                                            {{ __('Actions') }}
+                                            {{ __('Marca') }}
+                                        </th>
+                                        <th>
+                                            {{ __('Data de Validade') }}
+                                        </th>
+                                        <th>
+                                            {{ __('Categoria') }}
                                         </th>
                                     </thead>
                                     <tbody>
                                         @foreach ($produtos as $produto)
                                             <tr>
                                                 <td>{{ $produto->id }}</td>
-                                                <td>{{ $produto->nome }}</td>
+                                                <td>{{ $produto->name }}</td>
+                                                <td>{{ $produto->brand }}</td>
+                                                <td>{{ $produto->expiration_date }}</td>
+                                                <td>{{ $produto->categoria_id }}</td>
                                                 <td>
                                                     <!-- botao editar -->
                                                     <a href="{{ route('produto.edit', $produto->id) }}">
@@ -51,7 +60,7 @@
                                                     <!-- Botao visualizar -->
                                                     <button type="button" title="{{ __('Visualizar') }}"
                                                         data-toggle="modal" data-target="#modal-detalhes"
-                                                        data-id="{{ $produto->id }}" class="btn btn-danger">
+                                                        data-id="{{ $produto->id }}" class="btn btn-primary">
                                                         <i class="material-icons">visibility</i>
                                                     </button>
 
@@ -116,21 +125,21 @@
                             </div>
 
                             <div class="form-group col-md-12 col-sm-12">
-                                <h5 class="modal-title col-12 text-dark" id="serviceModalLabel">Preço</h5>
-                                <input type="text" id="detalhes-preço" name="detalhes-preço" class="form-control"
+                                <h5 class="modal-title col-12 text-dark" id="serviceModalLabel">Marca</h5>
+                                <input type="text" id="detalhes-marca" name="detalhes-marca" class="form-control"
                                     readonly>
                             </div>
 
                             <div class="form-group col-md-12 col-sm-12">
-                                <h5 class="modal-title col-12 text-dark" id="serviceModalLabel">Descrição do Produto</h5>
-                                <input type="text" id="detalhes-descricao" name="detalhes-descricao" class="form-control"
+                                <h5 class="modal-title col-12 text-dark" id="serviceModalLabel">Data de Validade</h5>
+                                <input type="text" id="detalhes-data de validade" name="detalhes-data de validade" class="form-control"
                                     readonly>
                             </div>
 
                             <div class="form-group col-md-12 col-sm-12">
-                                <h5 class="modal-title col-12 text-dark" id="serviceModalLabel">Quantidade disponível</h5>
-                                <input type="text" id="detalhes-quantidade" name="detalhes-quantidade"
-                                    class="form-control" readonly>
+                                <h5 class="modal-title col-12 text-dark" id="serviceModalLabel">Descrição</h5>
+                                <input type="text" id="detalhes-descricao" name="detalhes-descricao"class="form-control" 
+                                    readonly>
                             </div>
 
                             <div class="form-group col-md-12 col-sm-12">
@@ -162,12 +171,12 @@
             const url = 'produto/' + id
             $.getJSON(url, (resposta) => {
                 console.log(resposta);
-                $("#detalhes-nome").val(resposta.nome);
-                $("#detalhes-preço").val(resposta.preco);
-                $("#detalhes-descricao").val(resposta.descricao);
-                $("#detalhes-quantidade").val(resposta.quantidade);
-                $("#detalhes-categoria").val(resposta.categoria);
-                $("#detalhes-imagem").attr('src', '/storage/' + resposta.imagem);
+                $("#detalhes-nome").val(resposta.name);
+                $("#detalhes-marca").val(resposta.brand);
+                $("#detalhes-descricao").val(resposta.description);
+                $("#detalhes-data de validade").val(resposta.expiration_date);
+                $("#detalhes-categoria").val(resposta.categoria_id);
+                $("#detalhes-imagem").attr('src', '/storage/' + resposta.image);
             });
         })
         /* js para abrir Modal de excluir de forma dinâmica */

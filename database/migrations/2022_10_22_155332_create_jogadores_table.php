@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categorias', function (Blueprint $table) {
-            $table-> id();
-            $table-> string('name');
-            $table-> string('description');
+        Schema::create('jogadores', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->integer('idade');
+            $table->string('foto')->nullable();
+            $table->foreignId('nacionalidade_id')->constrained('nacionalidades');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        Schema::dropIfExists('jogadores');
     }
 };

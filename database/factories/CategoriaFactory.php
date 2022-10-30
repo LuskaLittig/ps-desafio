@@ -17,7 +17,8 @@ class CategoriaFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'description' => $this->faker->realText($maxNbChars = 50, $indexSize = 2),
         ];
     }
 }

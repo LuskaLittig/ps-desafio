@@ -3,9 +3,9 @@
 <div class="row">
     <label class="col-sm-2 col-form-label">{{ __('Nome do Produto') }}</label>
     <div>
-        <input type="text" id="nome" name="nome" value="{{ isset($produto) ? $produto->nome : old('nome') }}"
-            class="form-control @error('nome') is-invalid @enderror" placeholder="Nome do Produto" required>
-        @error('nome')
+        <input type="text" id="name" name="name" value="{{ isset($produto) ? $produto->name : old('name') }}"
+            class="form-control @error('name') is-invalid @enderror" placeholder="Escreva o nome do Produto" required>
+        @error('name')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
             </span>
@@ -18,10 +18,10 @@
 <div class="row">
     <label class="col-sm-2 col-form-label">{{ __('Descricao do Produto') }}</label>
     <div>
-        <textarea id="descricao" name="descricao" class="form-control @error('descricao') is-invalid @enderror"
+        <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror"
             placeholder="Escreva uma descrição curta sobre o produto"
-            required>{{ isset($produto) ? $produto->descricao : old('descricao') }}</textarea>
-        @error('descricao')
+            required>{{ isset($produto) ? $produto->description : old('description') }}</textarea>
+        @error('description')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
             </span>
@@ -30,14 +30,15 @@
 </div>
 
 
-{{-- Preço --}}
+{{-- Marca --}}
 
 <div class="row">
-    <label class="col-sm-2 col-form-label">{{ __('Preço do Produto') }}</label>
+    <label class="col-sm-2 col-form-label">{{ __('Marca do Produto') }}</label>
     <div>
-        <input type="text" id="preco" name="preco" value="{{ isset($produto) ? $produto->preco : old('preco') }}"
-            class="form-control @error('preco') is-invalid @enderror" required>
-        @error('preco')
+        <input type="text" id="brand" name="brand" value="{{ isset($produto) ? $produto->brand : old('brand') }}"
+            placeholder="Escreva a marca do produto"
+            class="form-control @error('brand') is-invalid @enderror" required>
+        @error('brand')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
             </span>
@@ -45,15 +46,16 @@
     </div>
 </div>
 
-{{-- Quantidade --}}
+{{-- Data de validade --}}
 
 <div class="row">
-    <label class="col-sm-2 col-form-label">{{ __('Quantidade do Produto') }}</label>
+    <label class="col-sm-2 col-form-label">{{ __('Data de validade do Produto') }}</label>
     <div>
-        <input type="number" id="quantidade" name="quantidade" min="1" max="500"
-            value="{{ isset($produto) ? $produto->quantidade : old('quantidade') }}"
-            class="form-control @error('quantidade') is-invalid @enderror" required>
-        @error('quantidade')
+        <input type="text" id="expiration_date" name="expiration_date" min="1" max="500"
+            value="{{ isset($produto) ? $produto->expiration_date : old('expiration_date') }}"
+            placeholder="Escreva a data de validade do produto"
+            class="form-control @error('expiration_date') is-invalid @enderror" required>
+        @error('expiration_date')
             <span class="invalid-feedback" role="alert">
                 <i class="fi-circle-cross"></i><strong> {{ $message }}</strong>
             </span>
@@ -72,7 +74,7 @@
             @isset($categorias)
                 @foreach ($categorias as $categoria)
                     <option @if (isset($produto) && $produto->categoria_id == $categoria->id) selected @endif value="{{ $categoria->id }}">
-                        {{ $categoria->categoria }}
+                        {{ $categoria->name }}
                     </option>
                 @endforeach
             @endisset
@@ -89,7 +91,7 @@
 <div class="row">
     <div class="col-sm-2 col-form-label">
         <label class="@if (!isset($produto)) required @endif" for="image">Imagens</label>
-        <input type="file" name="imagem" class="form-control" accept="image/*"
+        <input type="file" name="image" class="form-control" accept="image/*"
             @if (!isset($produto)) required @endif>
     </div>
 </div>
