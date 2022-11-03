@@ -22,7 +22,7 @@ class ProdutoController extends Controller
     {
 
         $categorias = Categoria::all();
-
+        
         return view('produto.crud', compact('categorias'));
 
     }
@@ -52,7 +52,7 @@ class ProdutoController extends Controller
     public function show($id)
     {
         $produto = Produto::find($id);
-
+        $produto->load('categoria');
         return response()->json($produto);
     }
 

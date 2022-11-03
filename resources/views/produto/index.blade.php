@@ -175,7 +175,7 @@
                 $("#detalhes-marca").val(resposta.brand);
                 $("#detalhes-descricao").val(resposta.description);
                 $("#detalhes-data de validade").val(resposta.expiration_date);
-                $("#detalhes-categoria").val(resposta.categoria_id);
+                $("#detalhes-categoria").val(resposta.categoria.name);
                 $("#detalhes-imagem").attr('src', '/storage/' + resposta.image);
             });
         })

@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LocaleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
-
+use App\Http\Controllers\siteIndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +19,8 @@ use App\Http\Controllers\ProdutoController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('siteIndex', [siteIndexController::class, 'index'])->name('siteIndex');
 
 Route::middleware('locale')->group(function () {
 
@@ -40,7 +42,7 @@ Route::middleware('locale')->group(function () {
 
         //Rotas para CRUD usuário
         Route::resource('user', UserController::class, ['except' => ['show']]);
-        Route::resource('categoria', CategoriaController::class, ['except' => ['show']]);
+        Route::resource('categoria', CategoriaController::class);
         Route::resource('produto', ProdutoController::class);
         
         //Rotas para perfil do usuário
@@ -49,10 +51,5 @@ Route::middleware('locale')->group(function () {
             Route::put('profile', 'update')->name('update');
             Route::put('profile/password', 'password')->name('password');
         });
-    
-        // Route::resource('nacionalidade', NacionalidadeController::class);
-        // Route::resource('jogador', JogadorController::class);
-        // Route::resource('categoria', CategoriaController::class);
-        // Route::resource('produto', ProdutoController::class);
     });
 });

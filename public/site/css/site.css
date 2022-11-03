@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    outline: none !important;
+}
+
+:root{
+    --background-header: white;
+    --text-color: black;
+    font-family: 'Nunito', sans-serif;
+    font-size: 120%;
+    --background-cards: rgb(231, 4, 4);
+}
+
+.darkmode{
+    --background-header: black;
+    --text-color: white;
+    --background-cards: black;
+    background-color: var(--background-header) ;
+
+}
+
+a:visited{
+    color: inherit;
+}
+
+
+#site-header{
+    height: 5vh;
+    width: 100%;
+    background-color: var(--background-header);
+    position: sticky;
+    top: 0;
+    left: 0;
+    color: var(--text-color);
+
+    border:10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+#header-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#header-logo{
+    width: 30%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+#header-logo img{
+    width: 100%;
+    height:90%;
+
+    object-fit: scale-down;
+
+    cursor:pointer;
+}
+
+#header-links{
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#header-darkmode{
+    width:10%;
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dark-mode-toggle{
+    display: none;
+}
+
+.label-darkmode{
+    display: flex;
+    align-items: center;
+}
+
+#sobrenos{
+    width: 100%;
+    height: 50vh;
+    font-size: 200%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-header);
+    color: var(--text-color);
+    align-items: center;
+    justify-content: center;
+}
+
+#index-card-section{
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.index-cliente img{
+    width: 100%;
+    height: 50%;
+    object-fit: scale-down;
+    margin-bottom: 5%;    
+}
+
+.index-cliente{
+    width: 19%;
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-cards);
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    margin-bottom: 1%;
+    border-radius: 10px;
+
+}
+@media(max-width: 410px){
+    #header-container{
+        font-size: 100%;
+    }
+
+}
+
+@media(max-width: 340px){
+    #header-container{
+        font-size: 80%;
+    }
+    #light-symbol,
+    #dark-symbol{
+        font-size: 120%;
+    }
+}

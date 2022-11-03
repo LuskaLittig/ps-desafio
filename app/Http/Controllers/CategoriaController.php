@@ -39,7 +39,7 @@ class CategoriaController extends Controller
 
     public function show($id){
         $categoria = Categoria::find($id);
-
+        
         return response()->json($categoria);
         // return json_encode($categoria);
     }

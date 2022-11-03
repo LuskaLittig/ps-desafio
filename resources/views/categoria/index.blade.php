@@ -139,6 +139,7 @@
             const id = button.data('id')
             const url = 'categoria/' + id
             $.getJSON(url, (resposta) => {
+                console.log(resposta);
                 $("#detalhes-name").val(resposta.name);
                 $("#detalhes-description").val(resposta.description);
             });

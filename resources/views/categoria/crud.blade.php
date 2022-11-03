@@ -21,7 +21,7 @@
                                 <h4 class="card-title">
                                     {{ isset($categoria) ? __('Edit categoria') : __('Create categoria') }}
                                 </h4>
-                                <p class="card-category">{{ __('Informação da categoria') }}</p>
+                                <p class="card-category">{{ __('categoria information') }}</p>
                             </div>
                             <div class="card-body ">
                                 @if (session('status'))
